@@ -16,10 +16,11 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
 import { addDocument, getDocument } from "../service/document";
+import { useNavigate } from "react-router-dom";
 
 export default function AddDocument() {
   const [document, setDocument] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     async function getData() {
       const response = await getDocument();
@@ -55,6 +56,9 @@ export default function AddDocument() {
           image_url: values.image_url,
         };
         const response = await addDocument(form);
+        if (response) {
+          navigate("/");
+        }
       } catch (error) {
         console.log(error);
       }

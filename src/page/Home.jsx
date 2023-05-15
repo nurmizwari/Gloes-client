@@ -129,13 +129,12 @@ export default function Home() {
                         </IconButton>
                       </Tooltip>
                     ) : null}
-                    {role == "admin" ? (
-                      <Tooltip title="Download">
-                        <CloudDownloadTwoToneIcon
-                          onClick={() => downloadImage(el.image_url)}
-                        />
-                      </Tooltip>
-                    ) : null}
+
+                    <Tooltip title="Download">
+                      <CloudDownloadTwoToneIcon
+                        onClick={() => downloadImage(el.image_url)}
+                      />
+                    </Tooltip>
                   </Box>
                 </CardActionArea>
               </Card>
